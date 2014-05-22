@@ -78,7 +78,6 @@
 
 		for ( var key in testData ) {
 
-			console.log( key );
 			post1.set( key, testData[key] );
 
 			deepEqual( post1.get( key ), testData[key], 'Post1 ' + key + ' should be set correctly' );
