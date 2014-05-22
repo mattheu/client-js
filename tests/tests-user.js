@@ -41,4 +41,25 @@
 
 	} );
 
+	test( 'User model data can be set correctly', function() {
+
+		expect ( 20 );
+
+		// Instantiate 2 new User models.
+		// 1 - setting data after creating the model.
+		// 2 - passing testData when creating.
+		var user1 = new wp.api.models.User();
+		var user2 = new wp.api.models.User( testData );
+
+		for ( var key in testData ) {
+
+			user1.set( key, testData[key] );
+
+			deepEqual( user1.get( key ), testData[key], 'User1 ' + key + ' should be set correctly' );
+			deepEqual( user2.get( key ), testData[key], 'User2 ' + key + ' should be set correctly' );
+
+		}
+
+	});
+
 }());
